@@ -13,7 +13,7 @@
  *
  * @author  :   Andres Peralta
  * @email   :   gapatmej@gmail.com
- * @date    :   26/06/2019
+ * @date    :   26/06/2019a
  * 
  */
 class NCategoriaProducto {
