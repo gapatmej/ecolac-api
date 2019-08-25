@@ -348,6 +348,33 @@ switch ($recurso) {
                 break;
         }
         break;
+    case Recursos::R_GES_DES:
+        switch ($transaccion) {
+            case Servicios::S_ACTUALIZAR_PEDIDO_001 :
+                require_once NEGOCIO . VENTAS . "NPedido.php";
+                $pedido = new dto\ventas\PedidoDTO($data->PedidoDTO, false);
+                //$data = (new negocio\ventas\NPedido)->actualizarEstadoDespachado($pedido);
+                (new negocio\ventas\NPedido)->actualizarEstadoDespachado($pedido);
+                $codigoError = Mensajes::$MSJ_ESTADO_CORRECTO["cod"];
+                $mensajeError = Mensajes::$MSJ_ESTADO_CORRECTO["mensaje"];
+                break;
+            case Servicios::S_ACTUALIZAR_DETALLE_PEDIDO_001 :
+                require_once NEGOCIO . VENTAS . "NDetallePedido.php";
+                $detallePedido = new dto\ventas\DetallePedidoDTO($data->DetallePedidoDTO, false);
+                //$data = (new negocio\ventas\NDetallePedido())->actualizarEstadoDespachadoPorId($detallePedido);
+                (new negocio\ventas\NDetallePedido())->actualizarEstadoDespachadoPorId($detallePedido);
+                $codigoError = Mensajes::$MSJ_ESTADO_CORRECTO["cod"];
+                $mensajeError = Mensajes::$MSJ_ESTADO_CORRECTO["mensaje"];
+                break;
+            case Servicios::S_CONSULTAR_PEDIDOS_001 :
+                require_once NEGOCIO . VENTAS . "NPedido.php";
+                $user = new \dto\seguridad\UsuarioDTO($data->UsuarioDTO, false);
+                $data = (new negocio\ventas\NPedido)->consultarPedidos($user);
+                $codigoError = Mensajes::$MSJ_ESTADO_CORRECTO["cod"];
+                $mensajeError = Mensajes::$MSJ_ESTADO_CORRECTO["mensaje"];
+                break;
+        }
+        break;
     case Recursos::R_GES_PED:
         switch ($transaccion) {
             case Servicios::S_CREAR_PEDIDO_001:
@@ -371,14 +398,6 @@ switch ($recurso) {
                 $detallePedido = new dto\ventas\DetallePedidoDTO($data->DetallePedidoDTO, false);
                 //$data = (new negocio\ventas\NDetallePedido())->actualizarEstadoDespachadoPorId($detallePedido);
                 (new negocio\ventas\NDetallePedido())->actualizarEstadoDespachadoPorId($detallePedido);
-                $codigoError = Mensajes::$MSJ_ESTADO_CORRECTO["cod"];
-                $mensajeError = Mensajes::$MSJ_ESTADO_CORRECTO["mensaje"];
-                break;
-            case Servicios::S_ACTUALIZAR_PEDIDO_001 :
-                require_once NEGOCIO . VENTAS . "NPedido.php";
-                $pedido = new dto\ventas\PedidoDTO($data->PedidoDTO, false);
-                //$data = (new negocio\ventas\NPedido)->actualizarEstadoDespachado($pedido);
-                (new negocio\ventas\NPedido)->actualizarEstadoDespachado($pedido);
                 $codigoError = Mensajes::$MSJ_ESTADO_CORRECTO["cod"];
                 $mensajeError = Mensajes::$MSJ_ESTADO_CORRECTO["mensaje"];
                 break;
@@ -409,6 +428,24 @@ switch ($recurso) {
                 require_once NEGOCIO . CONFIGURACION . "NProducto.php";
                 $user = new \dto\seguridad\UsuarioDTO($data->UsuarioDTO, false);
                 $data = (new \negocio\configuracion\NProducto)->consultarProductosVendidos($user);
+                $codigoError = Mensajes::$MSJ_ESTADO_CORRECTO["cod"];
+                $mensajeError = Mensajes::$MSJ_ESTADO_CORRECTO["mensaje"];
+                break;
+         }
+         break;
+     case Recursos::R_CLIENTE:
+         switch ($transaccion) {
+            case Servicios::S_CREAR_PEDIDO_001:
+                require_once NEGOCIO . VENTAS . "NPedido.php";
+                $pedido = new dto\ventas\PedidoDTO($data->PedidoDTO, false);
+                $data = (new negocio\ventas\NPedido)->crearPedido($pedido);
+                $codigoError = Mensajes::$MSJ_ESTADO_CORRECTO["cod"];
+                $mensajeError = Mensajes::$MSJ_ESTADO_CORRECTO["mensaje"];
+                break;
+            case Servicios::S_CONSULTAR_PEDIDOS_001 :
+                require_once NEGOCIO . VENTAS . "NPedido.php";
+                $user = new \dto\seguridad\UsuarioDTO($data->UsuarioDTO, false);
+                $data = (new negocio\ventas\NPedido)->consultarPedidos($user);
                 $codigoError = Mensajes::$MSJ_ESTADO_CORRECTO["cod"];
                 $mensajeError = Mensajes::$MSJ_ESTADO_CORRECTO["mensaje"];
                 break;

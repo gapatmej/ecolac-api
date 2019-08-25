@@ -34,6 +34,11 @@ class Autentificacion {
                 $data->recursos[] = $recurso->mnemonico;
             }
         }   
+        
+        if($usuarioDTO->esCliente){
+            $data->recursos[] = "CLIENTE";
+        }
+        
         $token = new Token(self::obtenerAud(), $data);
         
         return JWT::encode($token, CLAVE_SECRETA);

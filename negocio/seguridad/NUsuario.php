@@ -83,7 +83,7 @@ class NUsuario {
                         $recursoDTO = new RecursoDTO(json_decode(json_encode($recurso)), true);
                         $rolDTO->recursos[] = $recursoDTO;
                     }
-                }
+                }           
                 $usuarioDTOResponse->roles[] = $rolDTO;
             }
         }

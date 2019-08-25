@@ -65,6 +65,8 @@ abstract class Recursos {
     const R_GES_LIN= "GES_LIN";
     const R_GES_PRO= "GES_PRO";
     const R_GES_PED= "GES_PED";
+    const R_GES_DES= "GES_DES";
     const R_PRO_VEN= "PRO_VEN";
+    const R_CLIENTE= "CLIENTE";
 
 }
