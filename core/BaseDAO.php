@@ -94,7 +94,7 @@ class BaseDAO extends Conexion {
         }
 
         $query = "INSERT INTO " . $this->tabla . " ( ";
-
+        
         foreach ($this->columnas as $columna) {
             $query .= $columna . ",";
         }
@@ -179,7 +179,7 @@ class BaseDAO extends Conexion {
     }
 
     private function obtenerColumnas() {
-        $query = "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = :tabla";
+        $query = "SELECT COLUMN_NAME as columna FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = :tabla";
 
         if (!($stmt = $this->conn->prepare($query))) {
             throw new Exception($this->conn->error, $this->conn->errno);
@@ -194,7 +194,7 @@ class BaseDAO extends Conexion {
         while ($row = $stmt->fetch()) {
             $rows[] = $row;
         }
-        return array_column($rows, 'COLUMN_NAME');
+        return array_column($rows, 'columna');
     }
 
     private function formatearIndicesEntity(object $entity) {

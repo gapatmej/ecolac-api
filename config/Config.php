@@ -9,14 +9,22 @@
  * 
  */
 
-
-define("DRIVER","mysql");
+define("DIALECT","MYSQL");
+//define("DIALECT","POSTGRES");
 define("HOST","localhost");
-define("USER","root");
-define("PASS","");
 define("DATABASE","ecolac");
+/*
+ * POSTGRES DATABASE
+ */
+define("USER_POSTGRES","postgres");
+define("PASS_POSTGRES","usrAdmin");
+/*
+ * MYSQL DATABASE
+ */
+define("USER_MYSQL","root");
+define("PASS_MYSQL","");
 define("CHARSET","utf8");
-define("KEY_API","xxxxx");
+define("KEY_API","AIzaSyDyj6m3C9sLEofT3HRFdWCYDwLrQIhUzD0");
 define("URL_GOOGLE_API","https://maps.googleapis.com/maps/api/distancematrix/json?origins=");
 
 define("CLAVE_SECRETA","S7cuf-w't(%t$*xM");

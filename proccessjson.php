@@ -291,7 +291,7 @@ switch ($recurso) {
             case Servicios::S_CREAR_LINEA_PRODUCTO_001 :
                 require_once NEGOCIO . CONFIGURACION . "NLineaProducto.php";
                 $lineaProducto = new dto\configuracion\LineaProductoDTO($data->LineaProductoDTO, false);
-                //$data = (new \negocio\configuracion\NPresentacionProducto())->crearPresentacionProducto($presentacionProducto);
+                //$data = (new \negocio\configuracion\NLineaProducto())->crearLineaProducto($lineaProducto);
                 (new \negocio\configuracion\NLineaProducto())->crearLineaProducto($lineaProducto);
                 // $data = "ok";
                 $codigoError = Mensajes::$MSJ_ESTADO_CORRECTO["cod"];

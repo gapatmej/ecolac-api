@@ -96,6 +96,7 @@ class NPedido {
         
         foreach($result as $pedido){
             $pedidoDTO = new PedidoDTO(json_decode(json_encode($pedido)),true);
+            $pedidoDTO->cliente = $this->nUsuario->consultarUsuario($pedidoDTO->cliente);
             $pedidoDTO->detallesPedido = $this->nDetallePedido->obtenerPorPedido($pedidoDTO->idPedido); 
             $listaPedidos[] = $pedidoDTO;
         }

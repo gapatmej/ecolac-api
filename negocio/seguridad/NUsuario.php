@@ -240,7 +240,7 @@ class NUsuario {
     }
 
     public function consultarUsuario($id) {
-        return self::$usuarioDAO->obtenerPorId($id);
+        return $this->usuarioDAO->obtenerPorId($id);
     }
 
     public function encontrarRepartidor(UsuarioDTO $cliente) {
