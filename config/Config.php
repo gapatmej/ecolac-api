@@ -24,7 +24,7 @@ define("PASS_POSTGRES","usrAdmin");
 define("USER_MYSQL","root");
 define("PASS_MYSQL","");
 define("CHARSET","utf8");
-define("KEY_API","AIzaSyDyj6m3C9sLEofT3HRFdWCYDwLrQIhUzD0");
+define("KEY_API","");
 define("URL_GOOGLE_API","https://maps.googleapis.com/maps/api/distancematrix/json?origins=");
 
 define("CLAVE_SECRETA","S7cuf-w't(%t$*xM");
